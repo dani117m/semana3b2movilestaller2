@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:semana2b2moviles/main2.dart';
+import 'package:semana2b2moviles/splashFlutter.dart';
 import 'package:semana2b2moviles/taller2.dart';
 import 'taller2.dart';
+
+
 void main() {
   runApp(const MyApp());
 }
@@ -15,6 +19,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+
+      debugShowCheckedModeBanner: false,
+
       title: _title,
 
       theme: ThemeData(
@@ -29,7 +36,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Mi primera app'),
+      home: Splash(),
       //home: MyStatefulWidget2()
 
     );
@@ -53,6 +60,7 @@ class MyHomePage extends StatefulWidget {
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
+
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
@@ -82,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title,
 
-        textAlign: TextAlign.center
+            textAlign: TextAlign.center
 
         ),
         backgroundColor: Colors.greenAccent,
@@ -91,11 +99,15 @@ class _MyHomePageState extends State<MyHomePage> {
         leading: Icon(Icons.access_alarm),
         actions: [
           IconButton(icon: Icon(Icons.add_a_photo),
-            onPressed: ()=>{},
+            onPressed: ()=>{
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Splash())),
+            },
           ),
-            IconButton(icon: Icon(Icons.add),
-            onPressed: ()=>{},
-            ),
+          IconButton(icon: Icon(Icons.add),
+            onPressed: ()=>{
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Lista())),
+            },
+          ),
         ],
       ),
       body: Container(
@@ -147,6 +159,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
 
 class MyStatefulWidget extends StatefulWidget {
   const MyStatefulWidget({Key? key}) : super(key: key);
@@ -217,3 +230,8 @@ class _MyStatefulWidgetState2 extends State<MyStatefulWidget> {
     );
   }
 }
+
+
+
+
+
